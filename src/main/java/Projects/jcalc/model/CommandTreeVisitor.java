@@ -1,35 +1,8 @@
 package Projects.jcalc.model;
 
-public class CommandTreeVisitor implements CommandVisitor {
-    private static CommandTreeVisitor instance = new CommandTreeVisitor();
-    CommandTreeVisitor(){}
+public class CommandTreeVisitor {
+    private final static CommandTreeVisitor instance = new CommandTreeVisitor();
+    private CommandTreeVisitor() {}
 
-    public static CommandTreeVisitor getInstance() {
-        return instance;
-    }
-
-    @Override
-    public void add() {
-
-    }
-
-    @Override
-    public void subtract() {
-
-    }
-
-    @Override
-    public void multiply() {
-
-    }
-
-    @Override
-    public void divide() {
-
-    }
-
-    @Override
-    public void popnum() {
-
-    }
+    public static CommandTreeVisitor getInstance() {return instance;}
 }

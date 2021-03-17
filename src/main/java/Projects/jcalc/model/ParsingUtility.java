@@ -1,5 +1,8 @@
 package Projects.jcalc.model;
 
+import Projects.jcalc.model.commands.Command;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,6 +11,14 @@ import java.util.List;
 public class ParsingUtility {
     // Cannot instantiate now
     private ParsingUtility(){}
+
+    // Transforms ArrayString to ArrayofCommands
+    public static List<Command> convertStringsToCommands() {
+
+
+
+        return new ArrayList<Command>();
+    }
 
     // Static methods to be called anywhere in the calculator
     public static boolean validateExpression(List<String> infixStringArray) {

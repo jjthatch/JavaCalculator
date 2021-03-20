@@ -8,11 +8,9 @@ import java.util.ArrayList;
  * Singleton which is in charge of saving and accessing all trees.
  */
 public class CommandTreeManager {
-    // Visitors and Builders ready to work sir.
-    CommandTreeVisitor treeVisitor = CommandTreeVisitor.getInstance();
-    CommandTreeBuilder treeBuilder = CommandTreeBuilder.getInstance();
-    private static  CommandTreeManager instance = new CommandTreeManager();
 
+    // Singleton pattern commisioned
+    private static  CommandTreeManager instance = new CommandTreeManager();
     private CommandTreeManager(){}
 
     public static CommandTreeManager getInstance() {
@@ -22,24 +20,36 @@ public class CommandTreeManager {
         CommandTreeManager.instance = instance;
     }
 
+    // Visitors and Builders ready to work sir.
+    CommandTreeVisitor treeVisitor = CommandTreeVisitor.getInstance();
+    CommandTreeBuilder treeBuilder = CommandTreeBuilder.getInstance();
+
+
     /**
      * Transforms the given expression into a solution. No questions asked
      */
     public int solveExpression(ArrayList<Command> commands) {
-        return 1;
+        buildExpressionTree(commands);
+
+        return -1;
     }
     /**
      * Given an array of commands, will construct the necessary tree and store it.
      */
-    public void buildExpressionTree(ArrayList<Command> commands) {
-        // TODO:
+    private Command buildExpressionTree(ArrayList<Command> commands) {
+        // TODO: Pass everything needed to the buildExpressionTree
+        for (Command command : commands) {
+
+        }
+
+        return null;
     }
 
     /**
      * Utilizes given Visitor to traverse and solve expression tree
      * @return returns solution to problem
      */
-    public int solveExpressionTree() {
+    private int solveExpressionTree() {
         return 1;
     }
 }

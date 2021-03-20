@@ -3,6 +3,7 @@ package Projects.jcalc.model;
 import Projects.jcalc.model.commands.Command;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Singleton which is in charge of saving and accessing all trees.
@@ -28,7 +29,7 @@ public class CommandTreeManager {
     /**
      * Transforms the given expression into a solution. No questions asked
      */
-    public int solveExpression(ArrayList<Command> commands) {
+    public int solveExpression(List<String> commands) {
         buildExpressionTree(commands);
 
         return -1;
@@ -36,9 +37,9 @@ public class CommandTreeManager {
     /**
      * Given an array of commands, will construct the necessary tree and store it.
      */
-    private Command buildExpressionTree(ArrayList<Command> commands) {
+    private Command buildExpressionTree(List<String> commands) {
         // TODO: Pass everything needed to the buildExpressionTree
-        for (Command command : commands) {
+        for (String commandToken : commands) {
 
         }
 

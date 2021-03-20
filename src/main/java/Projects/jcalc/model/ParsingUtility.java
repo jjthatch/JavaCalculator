@@ -35,7 +35,7 @@ public class ParsingUtility {
             } else if (!operandNext && command.equals(")")) {
                 numClosingParenthesisNeeded -= 1;
                 operandNext = false;
-//                System.out.println("A right parenthesis, an operator should be coming");
+                System.out.println("A right parenthesis, an operator should be coming");
             } else {
 //                System.out.println("Your expression has failed");
                 return false;

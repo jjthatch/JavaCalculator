@@ -36,6 +36,31 @@ public class Controller {
             System.out.println(command);
         }
 
+        // Find first parenthesis and last parenthesis then cut out the substring
+        int firstParenthesis = commands.indexOf("(");
+        if (firstParenthesis != -1) {
+            int lastParenthesis = commands.lastIndexOf(")");
+            List<String> subExpression = commands.subList(firstParenthesis+1,lastParenthesis);
+
+            System.out.println("What did we capture in our subexpression?");
+            for (String strigoi : subExpression) {
+                System.out.print(strigoi);
+            }
+
+            List<String> expression;
+
+//            for (int i = 0; i < commands.size(); i++) {
+//                if (i == firstParenthesis) {
+//                    int subExpressionResult = solveWithRecursiveTree();
+//
+//                }
+//            }
+        }
+
+        // Now we tell the treemanager what expression we want solved using a treeee!
+        manager.solveExpression(commands);
+
+
         return -1;
     }
 

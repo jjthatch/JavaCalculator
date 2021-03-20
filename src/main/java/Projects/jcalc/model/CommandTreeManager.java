@@ -23,14 +23,38 @@ public class CommandTreeManager {
 
     // Visitors and Builders ready to work sir.
     CommandTreeVisitor treeVisitor = CommandTreeVisitor.getInstance();
-    CommandTreeBuilder treeBuilder = CommandTreeBuilder.getInstance();
+    CommandTreeBuilder treeBuilder = new CommandTreeBuilder();
 
 
     /**
      * Transforms the given expression into a solution. No questions asked
      */
     public int solveExpression(List<String> commands) {
-        buildExpressionTree(commands);
+
+        // Cycles through all commands and constructs an expression tree, THEN records the root of that tree.
+        for (String command : commands) {
+            switch (command) {
+                case "+" : treeBuilder.buildAddition();
+                break;
+                case "-" : treeBuilder.buildSubtraction();
+                break;
+                case "*" : treeBuilder.buildMultiplication();
+                break;
+                case "/" : treeBuilder.buildDivision();
+                break;
+                default :
+                    if (command.matches("[0123456789]+")) {
+                        treeBuilder.buildNumber();
+                } else {
+                        System.out.println("I don't know what this expression is?");
+                    }
+
+            }
+        }
+        Command root = treeBuilder.getRoot();
+        treeBuilder.reset();
+
+        root.accept(treeVisitor);
 
         return -1;
     }

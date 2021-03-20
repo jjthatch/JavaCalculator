@@ -36,7 +36,7 @@ public class Controller {
             System.out.println(command);
         }
 
-        // Find first parenthesis and last parenthesis then cut out the substring
+        // Recursively solves the substrings within parenthesis and creates a modified expression based off those results
         int firstParenthesis = commands.indexOf("(");
         if (firstParenthesis != -1) {
             int lastParenthesis = commands.lastIndexOf(")");

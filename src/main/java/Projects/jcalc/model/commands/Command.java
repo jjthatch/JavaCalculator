@@ -13,7 +13,7 @@ public abstract class Command {
     protected int precedence;
     protected Command left;
     protected Command right;
-    protected CommandTreeVisitor visitor = new CommandTreeVisitor();
+    protected CommandTreeVisitor visitor = CommandTreeVisitor.getInstance();
 
     /**
      * This method accepts a visitor from the (visitor pattern

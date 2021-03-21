@@ -14,9 +14,12 @@ public class CommandTreeBuilder {
     public Command getRoot() {
         return tempCommands.peek();
     }
-    public void buildNumber() {
+    public void buildNumber(String command) {
+        Double.valueOf(command);
         inboundNode = new Number_Command();
-        postfix.push(inboundNode);
+        Number_Command numCommand = (Number_Command)inboundNode;
+        numCommand.setOperand(Double.valueOf(command));
+        postfix.push(numCommand);
     }
     public void buildAddition() {
         inboundNode = new Addition_Command();

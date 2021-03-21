@@ -38,7 +38,7 @@ public class ShellView {
             if (ParsingUtility.validateExpression(arrayExpression)==true){
                 System.out.println("Yay, it's a valid expression");
                 // Send to controller for processing
-                controller.solveWithRecursiveTree(arrayExpression);
+                System.out.println("Result: " + controller.solveWithRecursiveTree(arrayExpression));
             } else {
                 System.out.println("Nope, it's not a valid expression. SAD");
             }

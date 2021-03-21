@@ -31,7 +31,7 @@ public class Controller {
      * Expressions must be separated by spaces. E.G. '2 + 2 - ( 3 + 2 )'
      * @return return list of Command objects representing the operators and operands
      */
-    public int solveWithRecursiveTree(List<String> commands) {
+    public Double solveWithRecursiveTree(List<String> commands) {
         for ( String command : commands) {
             System.out.println(command);
         }
@@ -57,16 +57,13 @@ public class Controller {
 //            }
         }
 
-        // Now we tell the treemanager what expression we want solved using a treeee!
-        manager.solveExpression(commands);
-
-
-        return -1;
+        // Now we tell the treemanager what expression we want solved using a tree!
+        return manager.solveExpression(commands);
     }
 
-    public int solveWithTree(List<String> commands) {
+    public Double solveWithTree(List<String> commands) {
 
-        return -1;
+        return Double.valueOf(1);
     }
 
     /**

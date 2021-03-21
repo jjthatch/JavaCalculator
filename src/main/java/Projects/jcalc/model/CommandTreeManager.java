@@ -29,7 +29,7 @@ public class CommandTreeManager {
     /**
      * Transforms the given expression into a solution. No questions asked
      */
-    public int solveExpression(List<String> commands) {
+    public Double solveExpression(List<String> commands) {
 
         // Cycles through all commands and constructs an expression tree, THEN records the root of that tree.
         for (String command : commands) {
@@ -44,19 +44,19 @@ public class CommandTreeManager {
                 break;
                 default :
                     if (command.matches("[0123456789]+")) {
-                        treeBuilder.buildNumber();
+                        treeBuilder.buildNumber(command);
                 } else {
                         System.out.println("I don't know what this expression is?");
                     }
-
             }
         }
         Command root = treeBuilder.getRoot();
         treeBuilder.reset();
 
         root.accept(treeVisitor);
+        Double result = treeVisitor.getResult();
 
-        return -1;
+        return result;
     }
     /**
      * Given an array of commands, will construct the necessary tree and store it.

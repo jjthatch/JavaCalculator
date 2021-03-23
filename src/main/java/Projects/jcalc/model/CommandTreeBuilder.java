@@ -59,17 +59,18 @@ public class CommandTreeBuilder {
         if (tempCommands.empty()) {
             tempCommands.push(inboundNode);
             return;
-        }
+        } else {
+            Command top = tempCommands.peek();
+            while ((inboundNode.getPrecedence() <= top.getPrecedence()) && !tempCommands.isEmpty()) {
+                swap = tempCommands.pop();
+                swap.setRight(postfix.pop());
+                swap.setLeft(postfix.pop());
+                postfix.push(swap);
+            }
 
-        while (inboundNode.getPrecedence() <= tempCommands.peek().getPrecedence()) {
-            swap = tempCommands.pop();
-            swap.setRight(postfix.pop());
-            swap.setLeft(postfix.pop());
-            postfix.push(swap);
-        }
-
-        if (inboundNode.getPrecedence() > tempCommands.peek().getPrecedence()) {
-            tempCommands.push(inboundNode);
+            if (tempCommands.isEmpty() || (inboundNode.getPrecedence() > tempCommands.peek().getPrecedence())) {
+                tempCommands.push(inboundNode);
+            }
         }
     }
 }

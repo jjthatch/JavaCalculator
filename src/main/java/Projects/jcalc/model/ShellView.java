@@ -32,12 +32,13 @@ public class ShellView {
             System.out.println("Please type in a math expression");
             stringExpression = scanner.nextLine();
             List<String> arrayExpression = Arrays.asList(stringExpression.split(" "));
-            Controller controller = new Controller();
+
+            Controller controller = Controller.getInstance();
 
             if (ParsingUtility.validateExpression(arrayExpression)==true){
                 System.out.println("Yay, it's a valid expression");
                 // Send to controller for processing
-                List<Command> listCommands = ParsingUtility.convertStringsToCommands();
+                System.out.println("Result: " + controller.solveWithRecursiveTree(arrayExpression));
             } else {
                 System.out.println("Nope, it's not a valid expression. SAD");
             }

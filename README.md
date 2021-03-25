@@ -2,6 +2,12 @@
 
 # Instructions for running calculator
 
+This is a maven java project and has been tested and run on IntelliJ as well as Eclipse.
+
+To use, Clone master onto machine.
+In given ide, run the main() function from the shellview java class.
+Instructions should appear on shell utility.
+
 # Calculator design and general usage
  Simple Command Line Calculator to translate an old C++ Calculator Project into the Java framework.
  This calculator is designed to be more generic and eventually allow for multiple algorithm to solve the same problem of calculating a math expression.

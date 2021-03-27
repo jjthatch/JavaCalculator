@@ -43,7 +43,7 @@ public class CommandTreeManager {
                 case "/" : treeBuilder.buildDivision();
                 break;
                 default :
-                    if (command.matches("[0123456789]+")) {
+                    if (command.matches("[0123456789]+.[0123456789]+|[0123456789]+")) {
                         treeBuilder.buildNumber(command);
                 } else {
                         System.out.println("I don't know what this expression is?");

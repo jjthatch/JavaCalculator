@@ -1,3 +1,9 @@
+### Random ###
+
+# File information for this operating system
+.DS_Store
+target/*
+
 # Java #
 *.class
 
@@ -37,3 +43,6 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
+.project
+.classpath

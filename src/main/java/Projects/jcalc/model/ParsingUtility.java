@@ -21,23 +21,23 @@ public class ParsingUtility {
         // Logic
         for (String command : infixStringArray) {
             // Conditional Logic
-//            System.out.print(command + " : ");
+            System.out.print(command + " : ");
             if (command.matches("[1234567890]") && operandNext) {
                 operandNext = false;
-//                System.out.println("A number, need an operator...");
+                System.out.println("A number, need an operator...");
             } else if (command.equals("(") && operandNext) {
                 numClosingParenthesisNeeded = 1;
                 operandNext = true;
-//                System.out.println("Left Parenthesis, Need number now...");
-            } else if (command.matches("[+/*%-]")) {
+                System.out.println("Left Parenthesis, Need number now...");
+            } else if (command.matches("[+/*%-]") && !operandNext) {
                 operandNext = true;
-//                System.out.println("An Operator, now needs a number");
+                System.out.println("An Operator, now needs a number");
             } else if (!operandNext && command.equals(")")) {
                 numClosingParenthesisNeeded -= 1;
                 operandNext = false;
                 System.out.println("A right parenthesis, an operator should be coming");
             } else {
-//                System.out.println("Your expression has failed");
+                System.out.println("Your expression has failed");
                 return false;
             }
         }

@@ -31,16 +31,19 @@ public class ShellView {
         while (true) {
             System.out.println("Please type in a math expression");
             stringExpression = scanner.nextLine();
+            if (stringExpression.equals("exit")) {
+            	break;
+            }
             List<String> arrayExpression = Arrays.asList(stringExpression.split(" "));
 
             Controller controller = Controller.getInstance();
 
             if (ParsingUtility.validateExpression(arrayExpression)==true){
-                System.out.println("Yay, it's a valid expression");
                 // Send to controller for processing
                 System.out.println("Result: " + controller.solveWithRecursiveTree(arrayExpression));
+                System.out.println();
             } else {
-                System.out.println("Nope, it's not a valid expression. SAD");
+                System.out.println("Invalid Expression");
             }
         }
     }

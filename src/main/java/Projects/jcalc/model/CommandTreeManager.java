@@ -46,7 +46,7 @@ public class CommandTreeManager {
                     if (command.matches("\\d+.\\d+|\\d+")) {
                         treeBuilder.buildNumber(command);
                 } else {
-                        System.out.println("I don't know what this expression is?");
+                	// TODO: an error must be thrown
                     }
             }
         }

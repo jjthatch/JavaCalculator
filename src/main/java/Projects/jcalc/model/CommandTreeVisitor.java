@@ -24,7 +24,6 @@ public class CommandTreeVisitor implements CommandVisitor {
     public void visitAddition(Command command) {
         command.visitLeft(this);
         command.visitRight(this);
-        System.out.println("+ node");
 
         Double right = result.pop();
         Double left = result.pop();
@@ -34,7 +33,6 @@ public class CommandTreeVisitor implements CommandVisitor {
     public void visitSubtraction(Command command) {
         command.visitLeft(this);
         command.visitRight(this);
-        System.out.println("- node");
 
         Double right = result.pop();
         Double left = result.pop();
@@ -43,7 +41,6 @@ public class CommandTreeVisitor implements CommandVisitor {
     public void visitMultiplication(Command command) {
         command.visitLeft(this);
         command.visitRight(this);
-        System.out.println("* node");
 
         Double right = result.pop();
         Double left = result.pop();
@@ -52,7 +49,6 @@ public class CommandTreeVisitor implements CommandVisitor {
     public void visitDivision(Command command) {
         command.visitLeft(this);
         command.visitRight(this);
-        System.out.println("/ node");
 
         Double right = result.pop();
         Double left = result.pop();
@@ -61,7 +57,6 @@ public class CommandTreeVisitor implements CommandVisitor {
     public void visitNumber(Command command) {
         command.visitLeft(this);
         command.visitRight(this);
-        System.out.println("NumeroUno");
 
         Number_Command numberCommand = (Number_Command)command;
         result.push(numberCommand.getOperand());

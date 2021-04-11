@@ -33,7 +33,6 @@ public class Controller {
      */
     public Double solveWithRecursiveTree(List<String> commands) {
 //        for ( String command : commands) {
-//            System.out.println(command);
 //        }
         // Recursively solves the substrings within parenthesis and creates a modified expression based off those results
         int firstParenthesis = commands.indexOf("(");
@@ -42,15 +41,11 @@ public class Controller {
             int numFirstParenthesis = 0;
             for (int i = 0; i < commands.size(); i++) {
                 String token = commands.get(i);
-                System.out.println("Token is " + token);
                 if (token.equals("(")) {
                     numFirstParenthesis++;
-                    System.out.println("First Parenthesis found at " + firstParenthesis);
                 } else if (token.equals(")")) {
-                    System.out.println("Last? Our numFirstParenthesis is at " + numFirstParenthesis);
                     if (numFirstParenthesis == 1) {
                         lastParenthesis = i;
-                        System.out.println("last Parenthesis found at " + lastParenthesis);
                         break;
                     }
                     numFirstParenthesis--;
@@ -58,11 +53,9 @@ public class Controller {
             }
             List<String> subExpression = commands.subList(firstParenthesis+1,lastParenthesis);
 
-            System.out.println("What did we capture in our subexpression?");
             for (String strigoi : subExpression) {
                 System.out.print(strigoi);
             }
-            System.out.println();
 
             List<String> expression = new ArrayList<>();
 
@@ -70,18 +63,15 @@ public class Controller {
                 if (i == firstParenthesis) {
                     Double subResult = solveWithRecursiveTree(subExpression);
                     expression.add(String.valueOf(subResult));
-                    System.out.println(lastParenthesis);
                     i = lastParenthesis;
                 } else {
                     expression.add(commands.get(i));
                 }
             }
             commands = expression;
-            System.out.println(commands);
             firstParenthesis = commands.indexOf("(");
         } // End of Loops.
         // Now we tell the treemanager what expression we want solved using a tree!
-        System.out.println("Final expression dig-evolve to " + commands);
         return manager.solveExpression(commands);
     }
 
